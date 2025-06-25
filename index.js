@@ -26,6 +26,9 @@ const oopps = require("./utils/notfound.js");
 app.use(express.json());
 app.use("/api/v1", authRouter); //authRouter used as middleware for domain url
 app.use("/api/v1/goal", auth, goalRouter);
+app.get("/", (req,res) =>{
+  res.status(200).json({success:true, message:"server is live"})
+})
 app.use(oopps);
 
 // creating an establish to connect our server to the database i.e server should run wen connected to database.
